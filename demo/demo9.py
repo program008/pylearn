@@ -70,3 +70,27 @@ def divide(x, y):
         print("result is", result)
     finally:
         print("executing finally clause")
+
+
+# 预定义的清理行为
+# 关键词 with 语句就可以保证诸如文件之类的对象在使用完之后一定会正确的执行他的清理方法:
+
+with open("/foo.txt") as f:
+    for line in f:
+        print(line, end="")
+
+
+# 以上这段代码执行完毕后，就算在处理过程中出问题了，文件 f 总是会关闭。
+
+# 在 python3 中，处理带有参数的异常的方法如下
+# 定义函数
+def temp_convert(var):
+    try:
+        return int(var)
+    except (ValueError) as Argument:
+        print("参数没有包含数字\n", Argument)
+
+
+# 调用函数
+temp_convert("xyz")
+
